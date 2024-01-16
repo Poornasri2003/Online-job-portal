@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application</title>
+  <!-- Add any additional styles or scripts needed for your application.html page -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/application.css" type="text/css">
+</head>
+<body>
+
+  <h1>Job Application Form</h1>
+
+  <form id="job-application-form" action="application.php" method="POST">
+    <!-- Include any other form fields you need -->
+    <div>
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" readonly>
+    </div>
+    <div>
+      <label for="postname">Job Title:</label>
+      <input type="text" id="postname" name="postname" readonly>
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <!-- Add any other form fields you need -->
+<div classname="a">
+  <input type="submit" value="SubmitApplication">
+</div>
+  </form>
+
+  
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+const comapany = urlParams.get('comapany');
+const postname = urlParams.get('postname');
+
+document.getElementById('company').value = comapany;
+document.getElementById('postname').value = postname;
+
+document.getElementById('job-application-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Retrieve other form field values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+
+  console.log(`Company: ${company}, Postname: ${postname}, Name: ${name}, Email: ${email}, Phone: ${phone}`);
+
+  // Manually submit the form
+  document.getElementById('job-application-form').submit();
+});
+  </script>
+  
+ 
+  
+</body>
+</html>

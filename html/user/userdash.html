@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link to Bootstrap CSS (add this line if you don't have Bootstrap linked already) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Apply styles to the container div */
+    .image-container {
+      height: 350px;
+      overflow: hidden; /* Ensure that the shadow doesn't overflow */
+      box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5); /* Apply a gray shadow on the left side */
+      position: relative; /* Make it a positioning context for absolute positioning */
+    }
+
+    /* Apply styles to the image */
+    .image-container img {
+      width: 100%; /* Make the image fill the container */
+      height: 100%; /* Make the image fill the container */
+      object-fit: cover; /* Ensure the image covers the container */
+    }
+
+    /* Overlay text styles */
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Logout styles */
+    .logout {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Card styles */
+    .card {
+      border: 1px solid #ddd;
+      margin: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    /* Apply styles to the submit button */
+    .apply-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Flex container for card alignment */
+    #job-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding-left: 0; /* Set left padding to 0 */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top right navigation (Logout) -->
+  <a href="#" class="logout">Logout</a>
+
+  <!-- Container div with shadow -->
+  <div class="image-container">
+    <!-- Image with width and height attributes set to 100% -->
+    <img src="../../image/login.jpg" alt="Job Fair">
+    <!-- Overlay text -->
+    <div class="overlay-text">Job Portal - Apply and Settle Your Future</div>
+  </div>
+
+  <!-- Job Card Layout -->
+  <div class="container mt-4">
+    <div class="row" id="job-cards-container"></div>
+  </div>
+
+  <script>
+    // Function to create a job card
+    function createJobCard(job) {
+      const card = document.createElement("div");
+      card.classList.add("card", "col-md-4");
+
+      // Card content
+      card.innerHTML = `
+        <h2>${job.comapany}</h2>
+        <p><strong>Job Title:</strong> ${job.postname}</p>
+        <p><strong>Salary:</strong> ${job.salary}</p>
+        <p><strong>Job Description:</strong> ${job.descriptjob}</p>
+        <p><strong>Location:</strong> ${job.location}</p>
+        <button class="apply-button" onclick="formsection('${job.comapany}', '${job.postname}')">Apply</button>
+      `;
+
+      // Append the card to the container
+      document.getElementById("job-cards-container").appendChild(card);
+    }
+
+    // Fetch job data from PHP script
+    fetch('get_jobs.php')
+      .then(response => response.json())
+      .then(data => data.forEach(createJobCard))
+      .catch(error => console.error('Error fetching job data:', error));
+      
+    function formsection(comapany, postname) {
+      // Encode comapany and postname to handle special characters
+      const encodedComapany = encodeURIComponent(comapany);
+      const encodedPostname = encodeURIComponent(postname);
+
+      //
+      window.location.href = `application.html?comapany=${encodedComapany}&postname=${encodedPostname}`;
+    }
+  </script>
+
+</body>
+</html>

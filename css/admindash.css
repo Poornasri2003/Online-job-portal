@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    padding: 20px;
+  }
+  
+  .left-nav {
+    width: auto;
+    height: 100vh;
+    background-color: #dad8d8;
+    color: black;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+  }
+  
+  .nav-item {
+    margin-bottom: 10px;
+    cursor: pointer; /* Add this to change the cursor on hover */
+    font: 20px;
+  }
+  
+  .nav-item:hover {
+    background-color: #b3b3b3; /* Add a background color change on hover */
+    color: white; /* Add a text color change on hover */
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .nav-item.active {
+    background-color: #4CAF50; /* Green color for active item */
+    color: white; /* Text color for active item */
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  /* form styling */
+  /* Styles for the form */
+  /* Styles for the form */
+#jobForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05);
+    margin: 20px auto; /* Center the form horizontally */
+    background: radial-gradient(circle, #e4e4e4 0%, #fff 100%); /* Radial gradient background */
+}
+
+#jobForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#jobForm .form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#jobForm textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+
+  
+  /* Change button CSS for white background */
+  button {
+    background-color:rgb(53 53 185) ;
+    color:white;
+    border: 1px solid rgb(43, 43, 213); /* Add border */
+    padding: 10px;
+    cursor: pointer;
+  }
+  textarea {
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none; /* Disable textarea resizing */
+}
+/* table css*/
+.posted-jobs {
+    margin-top: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    gap: 5px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }

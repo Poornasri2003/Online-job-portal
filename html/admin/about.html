@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../css/admindash.css">
+</head>
+<body>
+
+  <div class="left-nav">
+    <h1>Admin Dashboard</h1>
+    <div class="nav-item" id="jobsItem"><a href="../admin/admindash.php">Jobs</a></div>
+    <div class="nav-item" id="candidateItem"><a href="../../php/candidate.php">Candidate applied</a></div>
+    <div class="nav-item" id="aboutItem"><a href="#">About</a></div>
+   
+  </div>
+  <div class="content">
+    <!-- Your main content goes here -->
+   
+  </div>
+
+  <script>
+ 
+
+    // Add this JavaScript to dynamically set the active class
+    var url = window.location.href;
+    if (url.includes("candidate.php")) {
+      document.getElementById("candidateItem").classList.add("active");
+    } else if (url.includes("about.html")) {
+      document.getElementById("aboutItem").classList.add("active");
+    } else {
+      document.getElementById("jobsItem").classList.add("active");
+    }
+  </script>
+
+</body>
+</html>

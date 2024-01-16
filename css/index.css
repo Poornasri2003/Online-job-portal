@@ -1,0 +1,47 @@
+body{
+    background-image: url("../image/login.jpg");
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+    
+}
+#form {
+    width: 300px; 
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    background: white;
+  }
+  
+  h1 {
+    text-align: center; /* Center the heading */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px; /* Add spacing below labels */
+  }
+  
+  input {
+    padding: 8px; /* Add padding to input fields */
+    margin-bottom: 15px; /* Add spacing between input fields */
+    border: 1px solid #ccc; /* Add a border to input fields */
+    border-radius: 5px; /* Add border-radius for rounded input fields */
+  }
+  
+  input[type="submit"] {
+    background-color: #4caf50; /* Set background color for the submit button */
+    color: white; /* Set text color for the submit button */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049; /* Darken the background color on hover */
+  }
+  
